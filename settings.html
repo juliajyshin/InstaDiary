@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>InstaDiary</title>
+  
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Link to Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- Google Font API -->
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+  <!-- FontAwesome Icon Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Link to CSS Script -->
+  <link rel="stylesheet" type="text/css" href="assets/css/homestyle.css">
+
+</head>
+
+<body>
+
+<!-- Navigation bar -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <!-- Navigation Header Logo -->
+      <div class="navbar-header">
+        <!-- Logo links to major feed -->
+        <a href="diary.html" class="navbar-brand">InstaDiary</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <!-- My Profile links to users personal feed -->
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="home.html">My Profile</a>
+          </li>
+        </ul>
+        <!-- Dropdown Menu in Nav -->
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <span class="glyphicon glyphicon-user"></span>
+              <strong id='titleUserName'></strong>
+              <span class="glyphicon glyphicon-chevron-down"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <div class="row">
+                  <br>
+                  <!-- Users current account settings shown -->
+                  <p class="text-left">
+                    <strong id="userNameNavBar"></strong>
+                  </p>
+                  <p class="text-left small" id="userEmailNavBar"></p>
+                  <br>
+                  <!-- Update button to change Account Profile Settings -->
+                  <p class="text-left">
+                    <a href="settings.html" class="btn btn-primary btn-block">Update</a>
+                  </p>
+                </div>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <div class="row">
+                  <!-- Logout Button-->
+                  <button class="btn btn-danger btn-block" id="logoutButton">Log Out</button>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+ 
+<!--- Account Profile Settings -->
+<div class="container" id="profile-settings">
+    <div class="col-lg-12">
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          <h4>Account Profile Settings</h4>
+        </div>
+        <div class="panel-body">
+          <!-- Default profile picture upload -->
+          <div class="col-md-4">
+            <div class="row">
+              <img src="assets/images/default_profile.png" class="img-circle img-responsive" id="prof-upload">
+            </div>
+            <!-- Choose file to upload button -->
+            <div class="row" id="center-file">
+              <label for="profile-upload" class="custom-file-upload">
+                <i class="fa fa-cloud-upload"></i> Choose File
+              </label>
+              <input id="profile-upload" type="file" name="photos">
+            </div>
+          </div>
+          <!-- Display Profile Information -->
+          <div class="col-md-7">
+            <div class="row">
+              <h2 id="userName"> </h2>
+            </div>
+            <hr>
+            <div class="row">
+              <i class="fa fa-envelope-open" aria-hidden="true"></i>
+              <p id="userEmail"></p>
+            </div>
+            <hr>
+            <div class="row">
+              <button id="saveButton">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+  
+  
+
+<!--- +++++++++ jQuery Start +++++++++ -->
+<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script>
+<script src="assets/javascript/firebase.js"></script>
+<script>
+ var imgFile
+ var userName
+ var syncUserObject
+
+ /*  Changing Profile Picture  */
+ $('#gettingImgFile').on('change', previewFile)
+
+ function previewFile() {
+  var preview = document.querySelector('img')
+  imgFile = document.querySelector('input[type=file]').files[0]
+  console.log(imgFile.name)
+  reader= new FileReader()
+
+
+  reader.addEventListener('load', function() {
+    $('#preview').attr('src', reader.result)
+  }, false)
+
+  if(imgFile){
+    reader.readAsDataURL(imgFile)
+
+  } 
+}
+
+
+$('#saveButton').on('click', function(){
+  uploadPhotoToDatabase()
+})
+
+
+
+
+function uploadPhotoToDatabase(){
+  firebase.auth().onAuthStateChanged(function(user){
+    if(user){
+      database.ref('/user/'+user.uid).once('value', function(snap){
+
+        if(imgFile != null || imgFile != undefined){
+          var storageRef = storage.ref('/'+user.uid+'/Photo_Stack/'+imgFile.name)
+          uploadTask = storageRef.put(imgFile)
+
+
+          uploadTask.on('state_changed', function(snapshot){
+
+            var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            console.log('Upload is ' + progress + '% done')
+
+          }, function(error){
+            console.log('Uploading is failed = ' + error)
+
+          }, function(){
+
+            var downloadURL = uploadTask.snapshot.downloadURL
+
+            database.ref('/user/'+user.uid+'/profilePicture/').set({
+              profile: downloadURL
+            })
+
+          })
+
+        }
+
+
+      })
+
+    } else {
+      document.location.href = 'Login.html'
+    }
+
+  })
+
+}
+
+
+$(document).ready(function(){
+
+  $('#logoutButton').on('click', function(){
+    firebase.auth().signOut().then(function(){
+      document.location.href = 'Login.html'
+    }).catch(function (error) {
+      
+    })
+  })
+
+  firebase.auth().onAuthStateChanged(function(user){
+    if(user){
+      database.ref('/user/'+user.uid).once('value', function(snap){
+        var userObject = snap.val()
+        var userName = userObject.name
+        var userEmail = userObject.email
+        var profilePic
+
+
+        $('#userName').text(userName)
+        $('#userEmail').text(userEmail)
+
+        $('#titleUserName').text(userName)
+        $('#userNameNavBar').text(userName)
+        $('#userEmailNavBar').text(userEmail)
+
+
+
+
+        if(userObject.profilePicture == undefined){
+          $('#preview').attr('src', "assets/images/default_profile.png")
+        } else {
+          profilePic = userObject.profilePicture.profile
+          $('#preview').attr('src', profilePic)
+        }
+
+/*        if (userObject.profilePicture.profile != undefined || userObject.profilePicture.profile != null){
+          profilePic = userObject.profilePicture.profile
+          $('#preview').attr('src', profilePic)
+        } else {
+          $('#preview').attr('src', "assets/images/default_profile.png")
+        }*/
+
+
+        
+      })
+
+    } else {
+      document.location.href = 'Login.html'
+    }
+
+  })
+
+})
+</script>
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+</html>

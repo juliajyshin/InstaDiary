@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>InstaDiary</title>
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Link to Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- Google Font API -->
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+  <!-- Link to CSS Script -->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <!-- Main Logo -->
+      <div class="logoPlacement">
+        <h3 class="logo">InstaDiary</h3>
+      </div>
+    </div>
+    <div class="row">
+      <!-- If no account, register form -->
+      <div class="form">
+        <form class="register-form">
+          <input type="text" id="userNameForSignup" placeholder="name" class="box" />
+          <input type="text" id="emailAddressForSignup" placeholder="email address" />
+          <input type="password" id="passwordForSignup" placeholder="password" />
+          <button id="createButton" type="submit">create</button>
+          <p class="message">Already registered?
+            <a href="#"> Sign In</a>
+          </p>
+        </form>
+        <!-- If already member, sign-in form -->
+        <form class="login-form">
+          <input type="text" id="emailForLogin" placeholder="email" />
+          <input type="password" id="passwordForLogin" placeholder="password" />
+          <button id="loginButton" type="submit">login</button>
+          <p class="message">Not registered?
+            <a href="#"> Create an account</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+<!-- Link to Scripts -->
+<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script>
+<script src="assets/javascript/firebase.js"></script>
+<script src="assets/javascript/login.js"></script>
+<script src="assets/javascript/signup.js"></script>
+<!-- jQuery Start -->
+<script>
+  $('.message a').click(function () {
+    $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+  });
+</script>
+
+</html>
+
