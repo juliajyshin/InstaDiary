@@ -159,7 +159,7 @@ $(document).ready(function(){
 
 		} else {
 			console.log("The user is not logged-in")
-			document.location.href = "Login.html"
+			document.location.href = "index.html"
 		}
 	})
 
