@@ -1,15 +1,17 @@
 /* background-attachment: fixed; */
 @import url(https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed);
 
-/* body {
-  background-image: url();
+body {
+  background-color: #fafafa;
+  /* background-image: url();
   background-repeat: no-repeat;
   background-position: center top;
-  background-attachment: fixed;
-} */
+  background-attachment: fixed; */
+}
 
 h1, h2, h3 {
   font-family: 'Barlow Semi Condensed', sans-serif;
+  margin-top: 10px !important;
 }
 
 header {
@@ -19,7 +21,7 @@ background-color: #333333;
 
 }
 hr {
-  height: 8px;
+  height: 5px;
 }
 
 .navbar-nav li a:hover, .navbar-nav li.active a {
@@ -204,9 +206,10 @@ textarea{
 
 
 
-/* Profile Settings.html Photo Upload */
+/* Account.html Photo Upload */
 #profile-settings {
   margin-top: 100px;
+  width: 60%;
 }
 
 input[type="file"] {
@@ -222,12 +225,12 @@ input[type="file"] {
 
 #center-file {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 #prof-upload {
   border-radius: 90%;
-  width: 90%;
+  width: 40%;
   margin: auto;
   padding: 10px;
 }
@@ -235,3 +238,4 @@ input[type="file"] {
 #id {
   margin: auto;
 }
+
