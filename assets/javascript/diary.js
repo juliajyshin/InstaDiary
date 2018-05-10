@@ -130,41 +130,41 @@ $(document).ready(function(){
 	})
 
 
-	$(document).on('click', 'a', function(value){
-		console.log($(this).attr('value'))
-		var userKeyIndex = $(this).attr('value')
-		var blogObject = representBlogOfUserArray[userKeyIndex]
-		var userKey = blogObject.userKey
-		var whichBlogRep = blogObject.whichBlogIsRepresent
+// 	$(document).on('click', 'a', function(value){
+// 		console.log($(this).attr('value'))
+// 		var userKeyIndex = $(this).attr('value')
+// 		var blogObject = representBlogOfUserArray[userKeyIndex]
+// 		var userKey = blogObject.userKey
+// 		var whichBlogRep = blogObject.whichBlogIsRepresent
 
-		var detailObject = {
-			userKey: userKey,
-			whichBlog: whichBlogRep
-		}
+// 		var detailObject = {
+// 			userKey: userKey,
+// 			whichBlog: whichBlogRep
+// 		}
 
-		var myJSONObject = JSON.stringify(detailObject)
-		localStorage.setItem('blog', myJSONObject)
-		console.log(myJSONObject)
+// 		var myJSONObject = JSON.stringify(detailObject)
+// 		localStorage.setItem('blog', myJSONObject)
+// 		console.log(myJSONObject)
 
-		document.location.href = "detail.html"
+// 		document.location.href = "detail.html"
 
-	})
+// 	})
 
-	firebase.auth().onAuthStateChanged(function(user){
+// 	firebase.auth().onAuthStateChanged(function(user){
 
-		if(user){
+// 		if(user){
 
-			retrieveUserInfo(user.uid)
-			retrieveDatabase(user.uid)
+// 			retrieveUserInfo(user.uid)
+// 			retrieveDatabase(user.uid)
 
-		} else {
-			console.log("The user is not logged-in")
-			document.location.href = "index.html"
-		}
-	})
+// 		} else {
+// 			console.log("The user is not logged-in")
+// 			document.location.href = "Login.html"
+// 		}
+// 	})
 
 
-})
+// })
 
 
 
