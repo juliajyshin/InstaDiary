@@ -24,7 +24,7 @@ $('#createButton').on('click', function () {
 		// Create user data and store in Firebase
 		firebase.auth().createUserWithEmailAndPassword(email, password).then(function (user) {
 			firebase.auth().onAuthStateChanged(function (user) {
-				// Login with the entered information and enter into home.html page
+				// Login with the entered information and enter into index.html page
 				if (user) {
 					database.ref('/user/' + user.uid).set({
 						name: userName,
@@ -32,7 +32,7 @@ $('#createButton').on('click', function () {
 						password: password
 					})
 
-					document.location.href = "home.html"
+					document.location.href = "index.html"
 					// If not valid, console log error message
 				} else {
 					console.log("User is not avaliable")

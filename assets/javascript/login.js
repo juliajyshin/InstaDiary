@@ -19,7 +19,7 @@ $('#loginButton').on('click', function(event){
 
     setTimer()
 
-    document.location.href = "home.html"
+    document.location.href = "index.html"
     if(user){
       console.log("success : " + user.val().name)
 

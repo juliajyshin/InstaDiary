@@ -22,10 +22,8 @@ var journeyStory
 var isClickable = false
 
 
-
+// Initialize Google Map
 function initMap() {
-
-
     function getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
@@ -33,7 +31,6 @@ function initMap() {
             console.log("not getting location")
         }
     }
-
 
     function showPosition(position) {
         currentLat = position.coords.latitude
@@ -49,7 +46,7 @@ function initMap() {
 
     getLocation()
 
-    // Styles a map in night mode.
+    // Styles map in night mode
     newMap = new google.maps.Map(document.getElementById('map_editing'), {
         center: { lat: 40.674, lng: -73.945 },
         zoom: 12,
@@ -135,7 +132,7 @@ function initMap() {
         ]
     })
 
-
+    // Add pins to the map
     google.maps.event.addListener(newMap, "click", function (event) {
 
         if (isFinishedEdit === false) {
@@ -173,30 +170,6 @@ function initMap() {
 
             }
 
-
-
-
-
-            /*                    if(confirm("Do you want to add a marker on this specific location?")){
-                                  locationCounter += 1
-                                  var marker = new google.maps.Marker({
-                                    position: markerLocation,
-                                    map: newMap,
-                                    title: "Location Property"
-                                  })
-                                  markers.push(marker)
-            
-                                  marker.set('label', locationCounter.toString())
-            
-                                  locationLists.push({lat: lat, long: long})
-            
-                                  var curLocMap = new google.maps.LatLng(lat,long)
-            
-                                  mapDrawPolylineCoordinates.push(curLocMap)
-            
-            
-                                }*/
-
         } else {
 
             // This part should let user know in order to put more pins on the map should click edit button!!
@@ -207,10 +180,8 @@ function initMap() {
 }
 
 
-
+ // Uploading photos to Blog post
 $(document).ready(function () {
-
-
 
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
@@ -236,7 +207,7 @@ $(document).ready(function () {
 
     })
 
-    //hide preview photo container when the html loaded
+    // hide preview photo container when the html loaded
     $('#addedPhotoContainer').hide()
 
 
@@ -269,16 +240,12 @@ $(document).ready(function () {
 
             isFinishedEdit = true
             $('#didFinishedEditing').text('Edit')
-
-
         }
     })
 
 
     $('#addPhotoAndDescription').on('click', function (event) {
         event.preventDefault()
-
-
         $('#addedPhotoContainer').show()
 
         var photoObject = {
@@ -287,12 +254,11 @@ $(document).ready(function () {
             description: $('#textareaID').val()
         }
 
-
         imgArray.push(photoObject)
 
         for (var i = 0; i < locationLists.length; i++) {
             if (photoObject.locationIndex === i) {
-                // need to fixed to be able to add multiple photos @ same location
+                // Fix later to be able to add multiple photos @ same location
                 if (locationLists[i].photo_1 == null || locationLists[i].photo_1 == undefined) {
                     locationLists[i].photo_1 = photoObject
                     console.log(locationLists)
@@ -303,8 +269,6 @@ $(document).ready(function () {
 
             }
         }
-
-
 
         $('#previewOfAddedPhotoContainer')
             .append($('<container>')
@@ -323,8 +287,7 @@ $(document).ready(function () {
                                 .text("Location Index is " + $('#locationNum').val()))))))
 
 
-
-        $('#preview').attr('src', 'https://media.giphy.com/media/OQemfICSHDAly/giphy.gif')
+        $('#preview-1').attr('src', 'https://media.giphy.com/media/OQemfICSHDAly/giphy.gif')
         $('#gettingImgFile').val('')
         $('#textareaID').val('')
 
