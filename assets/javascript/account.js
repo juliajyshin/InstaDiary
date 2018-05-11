@@ -1,7 +1,6 @@
-// var imgFile
-var userName
-var syncUserObject
 // Variables 
+var userName
+var syncUserObject 
 var selectedFile
 
 // Changing a profile picture
@@ -12,7 +11,7 @@ function previewFile() {
   selectedFile = document.querySelector('input[type=file]').files[0]
   console.log(selectedFile.name)
   reader = new FileReader()
-// Upload the photo and show a preview image
+  // Upload the photo and show a preview image
   reader.addEventListener('load', function () {
     $('#prof-upload').attr('src', reader.result)
   }, false)
@@ -22,17 +21,9 @@ function previewFile() {
   }
 }
 
-
 $('#saveButton').on('click', function () {
-  // selectedFile = event.target.files[0];
   uploadProfileImage()
 })
-
-
-// $("#profile-upload").on("change", function (event) {
-//   selectedFile = event.target.files[0];
-//   $("#saveButton").show();
-// })
 
 // Upload Profile Image to Firebase
 function uploadProfileImage() {
@@ -147,7 +138,7 @@ $(document).ready(function () {
       })
 
     } else {
-      document.location.href = 'index.html'
+      document.location.href = 'Login.html'
     }
 
   })

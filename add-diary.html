@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>InstaDiary</title>
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Link to Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- Link to CSS Script -->
+  <link rel="stylesheet" type="text/css" href="assets/css/homestyle.css">
+  <!-- Moment.js Link -->
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+</head>
+
+
+<body>
+
+  <header>
+    <!-- Navigation bar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <!-- Navigation Header Logo -->
+        <div class="navbar-header">
+          <!-- Logo links to major feed -->
+          <a href="index.html" class="navbar-brand">InstaDiary</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <!-- My Profile links to users personal feed -->
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="profile.html">My Profile</a>
+            </li>
+          </ul>
+          <!-- Dropdown Menu in Nav -->
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-user"></span>
+                <strong id='titleUserName'></strong>
+                <span class="glyphicon glyphicon-chevron-down"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <div class="row">
+                    <br>
+                    <!-- Users current account settings shown -->
+                    <p class="text-left">
+                      <strong id="userNameNavBar"></strong>
+                    </p>
+                    <p class="text-left small" id="userEmailNavBar"></p>
+                    <br>
+                    <!-- Update button to change Account Profile Settings -->
+                    <p class="text-left">
+                      <a href="account.html" class="btn btn-primary btn-block">Update</a>
+                    </p>
+                  </div>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <div class="row">
+                    <!-- Logout Button-->
+                    <button class="btn btn-danger btn-block" id="logoutButton">Log Out</button>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Jumbotron Header -->
+  <div class="container" id="profile-settings">
+    <div class="row">
+      <div class="panel panel-default" id="panel-padding">
+          <div class="row text-center">
+              <h3>Upload your Travel Diary</h3>
+              <p>Please add a blog post and photos.</p>
+            </div>
+        <hr>
+        <!-- Google Map Adding Pin Modal -->
+        <div class="modal fade" id="pinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Welcome!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Would you like to start adding pin on the map??
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="modalNo" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary" id="modalYes" data-dismiss="modal">Yes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Google Map Edit Section -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title text-center">Map Edit</h3>
+          </div>
+          <!-- Render Map in Here -->
+          <div class="panel-body" id="map_editing">
+          </div>
+
+          <div class="backgroundColorPaint">
+            <button class="btn btn-danger" id="didFinishedEditing"> Finished </button>
+          </div>
+
+        </div>
+        <!-- Write your diary -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title text-center">
+              Write your diary
+            </h3>
+          </div>
+          <div class="panel-body">
+            <div class="form-group">
+              <h5 style="text-align: left"> Name of this Journey :</h3>
+                <input type="text" class="form-control" id="nameOfJourney">
+                <h5 style="text-align: left"> Write about your Journey :</h3>
+                  <textarea name="Route Description" id="textarea1"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add Photos to User Diary -->
+
+        <div class="panel panel-default" id="previewPhotoContainer">
+          <div class="panel-heading">
+            <h3 class="panel-title text-center">Add Photo</h3>
+          </div>
+          <div class="panel-body">
+            <div class="form-group">
+              <label for="locationNum">
+                Location Index
+              </label>
+              <select class="form-control" id="locationNum">
+              </select>
+            </div>
+            <div class="text-center">
+              <div class="form-group">
+                <label class="upload-group">
+                  Photo Upload
+                </label>
+                <br>
+                <img src="https://media.giphy.com/media/OQemfICSHDAly/giphy.gif" height="300" width="300" id="preview">
+                <input type="file" name="photos" id="gettingImgFile">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>
+                Description
+              </label>
+              <br>
+              <textarea name="Photo Description" id="textareaID" rows="5"></textarea>
+            </div>
+            <div class="text-center">
+              <button class="btn btn-danger" id="addPhotoAndDescription">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Write your diary -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title text-center">
+              Added Photos & Description
+            </h3>
+          </div>
+          <div class="panel-body" id="previewOfAddedPhotoContainer">
+          </div>
+          <div class="text-center" id="finalButton">
+            <button class="btn btn-danger" id="uploadPhotos" value="0">Upload Your Journey</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-PE1nTuHp_R0dcgAspF8YGbv4dsc2Ue4&callback=initMap"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script>
+<script src="assets/javascript/firebase.js"></script>
+<script src="assets/javascript/account.js"></script>
+<script src="assets/javascript/map.js"></script>
+
+</html>

@@ -4,7 +4,7 @@ var config = {
     authDomain: "instadiary-3c794.firebaseapp.com",
     databaseURL: "https://instadiary-3c794.firebaseio.com",
     projectId: "instadiary-3c794",
-    storageBucket: "instadiary-database-julia.appspot.com",
+    storageBucket: "instadiary-3c794.appspot.com",
     messagingSenderId: "80874982483"
 };
 
@@ -13,3 +13,4 @@ firebase.initializeApp(config);
 
 var database = firebase.database()
 var storage = firebase.storage()
+

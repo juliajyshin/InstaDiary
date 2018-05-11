@@ -1,38 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Insta Diary</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>InstaDiary</title>
+
+  <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Link to Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- Link to CSS Script -->
   <link rel="stylesheet" type="text/css" href="assets/css/homestyle.css">
+  <!-- Moment.js Link -->
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
 </head>
+
 <body>
+
   <header>
     <!-- Navigation bar -->
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container"> 
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <!-- Navigation Header Logo -->
         <div class="navbar-header">
+          <!-- Logo links to major feed -->
           <a href="index.html" class="navbar-brand">InstaDiary</a>
         </div>
         <div class="collapse navbar-collapse">
+          <!-- My Profile links to users personal feed -->
           <ul class="nav navbar-nav">
-            <li ><a href="profile.html">Profile</a></li>
+            <li>
+              <a href="profile.html">My Profile</a>
+            </li>
           </ul>
+          <!-- Dropdown Menu in Nav -->
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <span class="glyphicon glyphicon-user"></span> 
-                <strong id='titleUserName'></strong>            
+                <span class="glyphicon glyphicon-user"></span>
+                <strong id='titleUserName'></strong>
                 <span class="glyphicon glyphicon-chevron-down"></span>
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <div class="row"><br>
-                    <p class="text-left"><strong id="userNameNavBar"></strong></p>
-                    <p class="text-left small" id="userEmailNavBar"></p><br>
+                  <div class="row">
+                    <br>
+                    <!-- Users current account settings shown -->
+                    <p class="text-left">
+                      <strong id="userNameNavBar"></strong>
+                    </p>
+                    <p class="text-left small" id="userEmailNavBar"></p>
+                    <br>
+                    <!-- Update button to change Account Profile Settings -->
                     <p class="text-left">
                       <a href="account.html" class="btn btn-primary btn-block">Update</a>
                     </p>
@@ -41,6 +64,7 @@
                 <li class="divider"></li>
                 <li>
                   <div class="row">
+                    <!-- Logout Button-->
                     <button class="btn btn-danger btn-block" id="logoutButton">Log Out</button>
                   </div>
                 </li>
@@ -51,63 +75,55 @@
       </div>
     </div>
   </header>
-<!---Profile Picture Section -->
-<div class="container">
-  <div class="row">
-    <div class="col-sm-1">
-    </div>
-    <div class="col-md-10">
-      <div class="top-area">
-        <div class="profile-photo">
-        </div>
-        <!---ACTUAL PROFILE PICTURE UPLOAD AREA -->
-        <a href="#" class="profile-pic">
-          <img src="assets/images/default_profile.png" height="155" width="140" id="preview">
-        </a>
-      </div>
-    </div>
-  </div>
-  <!---Profile About Me Section -->
-  <div class="row">
-    <div class="col-sm-1"></div>
 
-    <div class="col-md-10">
-      <div class="section__body">
-        <h1 class="card-section_name" id="mainUserName"></h1>
-      </div>
-    </div>
-  </div>
-</div>
-<hr>
-<!---Google Maps Section -->
-<div class="container">
-  <div class="row">
-    <div class="col-sm-1">
-    </div>
-    <div class="col-md-10">
-      <div class="map-area">
-        <h3>Places I've Been</h3>
-        <br>
-        <div id="map">
+  <!-- Profile Page -->
+  <div class="container" id="profile-settings">
+    <div class="row">
+      <div class="panel panel-default" id="panel-padding">
+        <div class="row text-center">
+          <div class="top-area">
+            <div class="profile-photo">
+            </div>
+            <!-- User Photo -->
+            <a href="#" class="profile-pic">
+              <img src="assets/images/default_profile.png" style="width: 20%" id="prof-upload">
+            </a>
+          </div>
         </div>
-        <br>
+        <!-- Profile About Me Section -->
+        <div class="row">
+          <div class="about-me text-center">
+            <h1 id="userName"></h1>
+          </div>
+        </div>
+        <hr>
+        <!-- Google Map of Places User has been -->
+        <div class="row">
+          <div class="map-area text-center">
+            <h3>Places I've Been</h3>
+            <br>
+            <div id="map">
+            </div>
+            <br>
 
-        <div>
-          <button id="addJourney" class="btn btn-danger">Add Journey</button>
+            <div>
+              <button id="addJourney" class="btn btn-danger">Add Journey</button>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <!-- Blog Posts Rendered Here -->
+        <div id="blogs">
         </div>
       </div>
     </div>
   </div>
-</div>
-<!-- +++++++++++++++++++++++++++++++ BLOG POSTS START HERE ++++++++++++++++++++++++++++++ -->
-<div id="blogs">
-</div>
-
 </body>
-<!-- <script src="https://code.jquery.com/jquery.js"></script> --> 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBDIgfM9PCnLI_koxi20OA2EqB_8yKiu4&callback=initMap"></script>
-<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-PE1nTuHp_R0dcgAspF8YGbv4dsc2Ue4&callback=initMap"></script>
 <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script>
 <script src="assets/javascript/firebase.js"></script>
 <script src="assets/javascript/home.js"></script>
+<script src="assets/javascript/account.js"></script>
+
 </html>

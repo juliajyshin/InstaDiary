@@ -1,12 +1,7 @@
-/* background-attachment: fixed; */
 @import url(https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed);
 
 body {
   background-color: #fafafa;
-  /* background-image: url();
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-attachment: fixed; */
 }
 
 h1, h2, h3 {
@@ -17,82 +12,21 @@ h1, h2, h3 {
 header {
 width: 100%;
 height: 50px;
-background-color: #333333;
-
 }
+
 hr {
   height: 5px;
+  width: 90%;
 }
 
 .navbar-nav li a:hover, .navbar-nav li.active a {
   color: #3379b7 !important;
 }
 
-/* 
-.col-lg-8 {
-    width: auto;
-} */
-
 .dropdown-menu{
   min-width: 200px;
 }
 
-/* .row {
-    margin-right: 13px;
-    margin-left: 13px;
-} */
-
-.text-left {
-    text-align: center;
-}
-
-.top-area {
-  margin: 0 auto 100px;
-  margin: 20px auto 0;
-  text-align: center;
-  padding: 50px 0 0 0;
-  height: 120px;
-}
-
-.profile-btn {
-  border-radius: 50%;
-  position: relative;
-  z-index: 1;
-}
-
-.profile-pic {
-  position:absolute;
-  top:-30px;
-  height: 180px;
-  width: 160px;
-  background-position: center;
-  background-blend-mode: multiply;
-  vertical-align: middle;
-  text-decoration: none;
-  position: relative;
-  z-index: 1;
-}
-
-.section__body {
-  z-index: 1;
-  background: #ffffff;
-  margin: 0 auto 100px;
-  margin: 0 auto;
-  padding: 45px 0 10px 0;
-  text-align: center;
-}
-
-
-.map-area {
-  text-align: center;
-  background-color: #fff;
-  margin: 0 auto 100px;
-  margin: 0 auto;
-}
-
-#map {
-  height: 400px;
-}
 
 /*          blog post area edit       */
 .blog-post-display {
@@ -198,18 +132,37 @@ textarea{
   color: red;
 }
 
-
+/* BootStrap Panel CSS */
 .panel_width {
-  width: 80%;
+  width: 90%;
   margin: auto;
 }
 
+#panel-padding {
+  padding: 40px;
+}
 
+/* Main Feed CSS */
+#feed-area {
+  background-color: #ffffff;
+  margin: auto;
+  margin-top: 40px;
+  width: 70%;
+  text-align: center;
+  padding: 30px;
+  border-radius: 1%;
+}
+
+#map {
+  height: 400px;
+  width: 90%;
+  margin: auto;
+}
 
 /* Account.html Photo Upload */
 #profile-settings {
   margin-top: 100px;
-  width: 60%;
+  /* width: 60%; */
 }
 
 input[type="file"] {
