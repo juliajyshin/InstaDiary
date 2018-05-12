@@ -1,0 +1,24 @@
+{
+  "name": "instadiary",
+  "version": "1.0.0",
+  "description": "Click Here to Visit: [https://juliajyshin.github.io/InstaDiary/](https://juliajyshin.github.io/InstaDiary//)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juliajyshin/InstaDiary.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juliajyshin/InstaDiary/issues"
+  },
+  "homepage": "https://github.com/juliajyshin/InstaDiary#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3"
+  }
+}
