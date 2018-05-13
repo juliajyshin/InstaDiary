@@ -3,9 +3,10 @@
 Click Here to Visit: [https://afternoon-tor-25292.herokuapp.com/](https://afternoon-tor-25292.herokuapp.com/)
 
 ## To Log In
- - You can fake create your own Login Information (or)
+ - You can fake create your own Login Information or...
  - Use this guest login : 
-   - Email: johnsmith@gmail.com
+   - Name: John Smith
+   - Email: john@gmail.com
    - Password: 123456
 
 ## Project Description
