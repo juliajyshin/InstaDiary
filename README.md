@@ -35,7 +35,6 @@ InstaDiary is an application that provides a great medium for travelers to docum
 ```
 * The original project was left unfinished without working code.
 * The original authors were Julia Shin, Kwanil Kim, Sang Lee, Timothy Lee
-* The original unfinished project files can be seen here
-(https://github.com/rampagesang/instadiary)
+* The original unfinished project files can be seen here (https://github.com/rampagesang/instadiary)
 ```
 
