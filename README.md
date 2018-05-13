@@ -2,7 +2,7 @@
 
 Click Here to Visit: [https://afternoon-tor-25292.herokuapp.com/](https://afternoon-tor-25292.herokuapp.com/)
 
-* To Login
+## To Log In
  - You can fake create your own Login Information (or)
  - Use this guest login : 
    - Email: johnsmith@gmail.com
