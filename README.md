@@ -27,7 +27,13 @@ InstaDiary is an application that provides a great medium for travelers to docum
 * Ajax
 * Firebase - (storage for login information, pictures, and blogposts)
 
-## Authors
-* Julia Shin, Kwanil Kim, Sang Lee, Timothy Lee
+## Authors 
+* Julia Shin (I revamped the whole front-end and back-end in my own repository.)
+
+* The original project was left unfinished without working code.
+* The original authors were Julia Shin, Kwanil Kim, Sang Lee, Timothy Lee
+* The original unfinished project files can be seen here
+[https://github.com/rampagesang/instadiary] (https://github.com/rampagesang/instadiary)
+
 * https://github.com/juliajyshin
 * [Buy me a coffee ☕️](https://ko-fi.com/juliajverie)
