@@ -102,68 +102,68 @@ $('#addJourney').on('click', function(event){
 
 
 
-// $(document).ready(function(){
+$(document).ready(function(){
 
-// 	$('#logoutButton').on('click', function(){
-// 		firebase.auth().signOut().then(function(){
-// 			document.location.href = 'Login.html'
-// 		}).catch(function (error) {
-//                      // Handle errors
-//         })
-// 	})
-
-
-
-// 	firebase.auth().onAuthStateChanged(function(user){
-// 		if(user){
-// 			database.ref('/user/'+user.uid).once('value', function(snap){
-// 				var userObject = snap.val()
-// 				var userName = userObject.name
-// 				var userEmail = userObject.email
-// 				var profilePic
-
-
-// 				$('#userName').text(userName)
-// 				$('#mainUserName').text(userName)
-// 				$('#userEmail').text(userEmail)
-
-// 				$('#titleUserName').text(userName)
-// 				$('#userNameNavBar').text(userName)
-// 				$('#userEmailNavBar').text(userEmail)
-
-
-// 				if(userObject.profilePicture == undefined){
-// 					$('#preview').attr('src', "assets/images/default_profile.png")
-// 				} else {
-// 					profilePic = userObject.profilePicture.profile
-// 					$('#preview').attr('src', profilePic)
-// 				}
+	$('#logoutButton').on('click', function(){
+		firebase.auth().signOut().then(function(){
+			document.location.href = 'login.html'
+		}).catch(function (error) {
+                     // Handle errors
+        })
+	})
 
 
 
-// 			})
-
-// 		} else {
-// 			document.location.href = 'Login.html'
-// 		}
-
-// 	})
-
-
-
-// 	firebase.auth().onAuthStateChanged(function(user){
-
-// 		if(user){
-// 			retrieveDatabase(user.uid)
-
-// 		} else {
-// 			console.log("The user is not logged-in")
-// 			document.location.href = "Login.html"
-// 		}
-// 	})
+	firebase.auth().onAuthStateChanged(function(user){
+		if(user){
+			database.ref('/user/'+user.uid).once('value', function(snap){
+				var userObject = snap.val()
+				var userName = userObject.name
+				var userEmail = userObject.email
+				var profilePic
 
 
-// })
+				$('#userName').text(userName)
+				$('#mainUserName').text(userName)
+				$('#userEmail').text(userEmail)
+
+				$('#titleUserName').text(userName)
+				$('#userNameNavBar').text(userName)
+				$('#userEmailNavBar').text(userEmail)
+
+
+				if(userObject.profilePicture == undefined){
+					$('#preview').attr('src', "assets/images/default_profile.png")
+				} else {
+					profilePic = userObject.profilePicture.profile
+					$('#preview').attr('src', profilePic)
+				}
+
+
+
+			})
+
+		} else {
+			document.location.href = 'login.html'
+		}
+
+	})
+
+
+
+	firebase.auth().onAuthStateChanged(function(user){
+
+		if(user){
+			retrieveDatabase(user.uid)
+
+		} else {
+			console.log("The user is not logged-in")
+			document.location.href = "login.html"
+		}
+	})
+
+
+})
 
 function retrieveDatabase(uid) {
 	console.log(uid)

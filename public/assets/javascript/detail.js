@@ -96,7 +96,7 @@ $(document).ready(function(){
 
     $('#logoutButton').on('click', function(){
         firebase.auth().signOut().then(function(){
-            document.location.href = 'Login.html'
+            document.location.href = 'login.html'
         }).catch(function (error) {
 
         })
@@ -226,23 +226,23 @@ $(document).ready(function(){
             })
 
         } else {
-            document.location.href = 'Login.html'
+            document.location.href = 'login.html'
         }
 
     })
 
 
 
-/*    firebase.auth().onAuthStateChanged(function(user){
+  firebase.auth().onAuthStateChanged(function(user){
 
         if(user){
             retrieveDatabase(user.uid)
 
         } else {
             console.log("The user is not logged-in")
-            document.location.href = "Login.html"
+            document.location.href = "login.html"
         }
     })
-    */
+    
 
 })

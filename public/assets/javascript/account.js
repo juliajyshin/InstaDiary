@@ -82,7 +82,7 @@ function uploadProfileImage() {
 //         })
 
 //       } else {
-//         document.location.href = 'Login.html'
+//         document.location.href = 'login.html'
 //       }
 
 //     })
@@ -94,7 +94,7 @@ $(document).ready(function () {
 
   $('#logoutButton').on('click', function () {
     firebase.auth().signOut().then(function () {
-      document.location.href = 'Login.html'
+      document.location.href = 'login.html'
     }).catch(function (error) {
 
     })
@@ -138,7 +138,7 @@ $(document).ready(function () {
       })
 
     } else {
-      document.location.href = 'Login.html'
+      document.location.href = 'login.html'
     }
 
   })
