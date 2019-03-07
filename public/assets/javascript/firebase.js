@@ -1,10 +1,10 @@
 
 var config = {
-    apiKey: "AIzaSyA9-UXyNEPIeduoPuxfcd7Y1YBYMgjy3xA",
-    authDomain: "instadiary-e3080.firebaseapp.com",
-    databaseURL: "https://instadiary-e3080.firebaseio.com",
-    projectId: "instadiary-e3080",
-    storageBucket: "instadiary-e3080.appspot.com",
+    apiKey: "AIzaSyAW5ecCR-5hW5d7_7swntc17s5w4OhX9UE",
+    authDomain: "instadiary-3c794.firebaseapp.com",
+    databaseURL: "https://instadiary-3c794.firebaseio.com",
+    projectId: "instadiary-3c794",
+    storageBucket: "instadiary-3c794.appspot.com",
     messagingSenderId: "80874982483"
 };
 
