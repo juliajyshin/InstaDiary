@@ -1,7 +1,6 @@
 
 var config = {
-    // apiKey: "AIzaSyAW5ecCR-5hW5d7_7swntc17s5w4OhX9UE",
-     apiKey: "AIzaSyD_DmtMWOESTCukIdrmomST6ptSAWy-CaA",
+    apiKey: "AIzaSyAW5ecCR-5hW5d7_7swntc17s5w4OhX9UE",
     authDomain: "instadiary-3c794.firebaseapp.com",
     databaseURL: "https://instadiary-3c794.firebaseio.com",
     projectId: "instadiary-3c794",
